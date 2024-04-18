@@ -436,7 +436,7 @@ class BackBroker(bt.BrokerBase):
             if not self.p.shortcash:
                 dvalue = comminfo.getvalue(position, data.close[0])
             else:
-                print(f"position.size: {position.size}, data.close[0]:{data.close[0]}")
+                print(f" comminfo type: {type(comminfo)}, comminfo: {comminfo}, position.size: {position.size}, data.close[0]:{data.close[0]}")
                 dvalue = comminfo.getvaluesize(position.size, data.close[0])
 
             dunrealized = comminfo.profitandloss(position.size, position.price,
