@@ -70,7 +70,7 @@ class API(oandapy.API):
 
         method = method.lower()
         params = params or {}
-
+        print(f"http call:{method} {url}")
         func = getattr(self.client, method)
 
         request_args = {}
@@ -83,8 +83,9 @@ class API(oandapy.API):
         try:
             response = func(url, **request_args)
         except requests.RequestException as e:
+            print(traceback.print_exception(e))
             return OandaRequestError().error_response
-
+        print(f"response.content: {resposne.content}")
         content = response.content.decode('utf-8')
         content = json.loads(content)
 
