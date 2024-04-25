@@ -85,7 +85,7 @@ class API(oandapy.API):
         except requests.RequestException as e:
             print(traceback.print_exception(e))
             return OandaRequestError().error_response
-        print(f"response.content: {resposne.content}")
+        print(f"response.content: {response.content}")
         content = response.content.decode('utf-8')
         content = json.loads(content)
 
